@@ -1,0 +1,47 @@
+body{
+    background-image:url('./src/image/vairo-background.jpg');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.headerText {
+    color:red;
+}
+
+.btnBaslaSifirla{
+    width:200px;
+    height: 70px;
+    font-size: 20px;
+}
+
+#sifirlaButton{
+    width:200px;
+    height: 70px;
+    font-size: 20px;
+}
+
+.baslaSifirlaButton {
+    width:200px;
+    height: 70px;
+    font-size: 20px;
+}
+
+#weekValue{
+    font-size:20px;
+}
+
+#btnUpdate{
+    border-color:darkblue;
+    border-width:3px;
+    height: 40px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    color:white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.week{
+    font-size: 20px;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
