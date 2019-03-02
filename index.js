@@ -178,21 +178,21 @@ function playMatch(home,away){
         if(homeChance > awayChance){
             if(homeSurpriseChance>awaySurpriseChance){
                 homeGoal = Math.floor(Math.random() * (6 - 2) ) + 2;
-                awayGoal = Math.floor(Math.random() * (4 - 1) ) + 0;
+                awayGoal = Math.floor(Math.random() * (4 - 1) ) + 1;
             }
             else{
-                homeGoal = Math.floor(Math.random() * (5 - 2) ) + 1;
-                awayGoal = Math.floor(Math.random() * (4 - 1) ) + 2;
+                homeGoal = Math.floor(Math.random() * (5 - 2) ) + 2;
+                awayGoal = Math.floor(Math.random() * (4 - 1) ) + 1;
             }
         }
         else if(homeChance < awayChance){
             if(homeSurpriseChance < awaySurpriseChance){
                 awayGoal = Math.floor(Math.random() * (6 - 2) ) + 2;
-                homeGoal = Math.floor(Math.random() * (4 - 1) ) + 0;
+                homeGoal = Math.floor(Math.random() * (4 - 1) ) + 1;
             }
             else{
-                awayGoal = Math.floor(Math.random() * (5 - 2) ) + 1;
-                homeGoal = Math.floor(Math.random() * (4 - 1) ) + 2;
+                awayGoal = Math.floor(Math.random() * (5 - 2) ) + 2;
+                homeGoal = Math.floor(Math.random() * (4 - 1) ) + 1;
             }
         }
         else{
