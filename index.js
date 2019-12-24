@@ -264,7 +264,7 @@ function whenLeagueEndUpdateButtons(){
         return b.Pts - a.Pts || b.GoalDifference - a.GoalDifference;
     });
 
-    $('.btnBaslaSifirla').html('LİG SONA ERDİ!');
+    $('.btnBaslaSifirla').html('END OF THE SEASON!');
     $('#btnIlerle').removeClass('btn-danger');
     $('#btnIlerle').addClass('btn-success');
     $('.btnBaslaSifirla').addClass('disabled');
@@ -562,10 +562,10 @@ function appendChampionshipChance(Teams){
 function removeStartButtonDisplayResteButton(){
     
     $('#baslaButton').remove();
-    $('.page-header').append('<button class="btn btn-danger baslaSifirlaButton" id="sifirlaButton">SIFIRLA</button>');
+    $('.page-header').append('<button class="btn btn-danger baslaSifirlaButton" id="sifirlaButton">RESET/NEW GAME</button>');
     //SIFIRLA BUTON
     $('.page-header').on('click', '#sifirlaButton', function() {
-       var res = confirm('Sıfırlamak istediğine emin misin? Tüm veriler kaybolacak!');
+       var res = confirm('Are you sure? All data will be deleted!');
        if(res == true){
             resetProgram();
        }
