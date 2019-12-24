@@ -3,7 +3,7 @@
     <head>
          <meta charset="UTF-8">
         <title>
-            Vairosoft Champions League
+            Champions League
         </title>
         <link href="node_modules\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
@@ -12,8 +12,8 @@
         <div class="container">
                 <!--HEADER-->
             <div class="page-header text-center">
-                    <h1 class="headerText">VAİROSOFT CHAMPİONS LEAGUE</h1>
-                    <button class="btn btn-danger baslaSifirlaButton" onclick="startLeague()" id="baslaButton">BAŞLA</button>
+                    <h1 class="headerText">CHAMPİONS LEAGUE</h1>
+                    <button class="btn btn-danger baslaSifirlaButton" onclick="startLeague()" id="baslaButton">START</button>
             </div>
             <div class="row hidden" id="simulatorScreen">
                 <!--LİG TABLOSU-->
@@ -49,7 +49,7 @@
                                 <th>CHANCE</th>
                             </tr>
                      </table>
-                     <div class="alert alert-success text-center hidden" id="champmionAlert">ŞAMPİYON BAŞAKŞEHİR</div>
+                     <div class="alert alert-success text-center hidden" id="champmionAlert">CHAMPION BAŞAKŞEHİR</div>
             </div>
                      <!--FİXTÜR TABLOSU-->
                 <div class="col-lg-4">
@@ -83,10 +83,10 @@
             </div>
             <div class="row hidden" id="engineButtons">
                 <div class="col-lg-4 text-left">
-                    <Button class="btn btn-danger btnBaslaSifirla hidden" onclick="autoFinishLeague()" id="finishLeague">LİGİ BİTİR</Button>
+                    <Button class="btn btn-danger btnBaslaSifirla hidden" onclick="autoFinishLeague()" id="finishLeague">SIMULATE ALL MATCHES</Button>
                 </div>
                 <div class="col-lg-4 col-lg-offset-4 text-right">
-                    <Button class="btn btn-danger btnBaslaSifirla" id="btnIlerle" onclick="PlayAndNextWeek()">İLERLE</Button>
+                    <Button class="btn btn-danger btnBaslaSifirla" id="btnIlerle" onclick="PlayAndNextWeek()">NEXT WEEK</Button>
                 </div>
             </div>
         </div>
