@@ -1,98 +1,106 @@
 <!DOCTYPE html>
 <html>
-    <head>
-         <meta charset="UTF-8">
-        <title>
-            Vairosoft Champions League
-        </title>
-        <link href="node_modules\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet">
-        <link href="style.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class="container">
-                <!--HEADER-->
-            <div class="page-header text-center">
-                    <h1 class="headerText">VAİROSOFT CHAMPİONS LEAGUE</h1>
-                    <button class="btn btn-danger baslaSifirlaButton" onclick="startLeague()" id="baslaButton">BAŞLA</button>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Champions League
+    </title>
+    <link href="node_modules\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!--HEADER-->
+        <div class="page-header text-center">
+            <h1 class="headerText">CHAMPİONS LEAGUE</h1>
+            <button class="btn btn-danger baslaSifirlaButton" onclick="startLeague()" id="baslaButton">START</button>
+        </div>
+        <div class="row hidden" id="simulatorScreen">
+            <!--LİG TABLOSU-->
+            <div class="col-lg-4">
+                <table class="table table-bordered bg-primary" id="leagueTable">
+                    <tr>
+                        <h3 class="text-center">LEAGUE TABLE</h3>
+                    </tr>
+                    <hr />
+                    <tr>
+                        <h4 class="text-center">TURKİSH SUPER LEAGUE</h6>
+                    </tr>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Teams</th>
+                        <th>PTS</th>
+                        <th>P</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>GD</th>
+                    </tr>
+                </table>
             </div>
-            <div class="row hidden" id="simulatorScreen">
-                <!--LİG TABLOSU-->
-                <div class="col-lg-4">
-                        <table class="table table-bordered bg-primary" id="leagueTable">
-                                <tr>
-                                    <h3 class="text-center">LEAGUE TABLE</h3>
-                                </tr>
-                                <hr/>
-                                <tr>
-                                    <h4 class="text-center">TURKİSH SUPER LEAGUE</h6>
-                                </tr>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Teams</th>
-                                    <th>PTS</th>
-                                    <th>P</th>
-                                    <th>W</th>
-                                    <th>D</th>
-                                    <th>L</th>
-                                    <th>GD</th>
-                                </tr>
-                         </table>
-                </div>
-                <div class="col-lg-4">
-                    <table class="table table-bordered text-center bg-primary" id="championsChance">
-                            <tr class="chanceHead">
-                                <h3 class="text-center">CHAMPİONSHİP CHANCE</h3>
-                            </tr>
-                            <hr/>
-                            <tr>
-                                <th>TEAMS</th>
-                                <th>CHANCE</th>
-                            </tr>
-                     </table>
-                     <div class="alert alert-success text-center hidden" id="champmionAlert">ŞAMPİYON BAŞAKŞEHİR</div>
+            <div class="col-lg-4">
+                <table class="table table-bordered text-center bg-primary" id="championsChance">
+                    <tr class="chanceHead">
+                        <h3 class="text-center">CHAMPİONSHİP CHANCE</h3>
+                    </tr>
+                    <hr />
+                    <tr>
+                        <th>TEAMS</th>
+                        <th>CHANCE</th>
+                    </tr>
+                </table>
+                <div class="alert alert-success text-center hidden" id="champmionAlert">CHAMPION BAŞAKŞEHİR</div>
             </div>
-                     <!--FİXTÜR TABLOSU-->
-                <div class="col-lg-4">
-                    <table class="table table-bordered text-center bg-primary" id="fixturesTable">
-                            <tr class="fixturHead">
-                                <h3 class="text-center">FİXTURES</h3>
-                            </tr>
-                            <hr/>
-                            <tr class="fixturHead">
-                                <nav aria-label="...">
-                                    <ul class="pager">
-                                        <li class="previous"><a onclick="displayPreviousWeekMatches()" href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
-                                        <li class="week"><b id="fixtureWeek">-</b></li>
-                                        <p hidden id="weekNumber"></p>
-                                        <li class="next"><a onclick="displayNextWeekMatches()" href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
-                                    </ul>
-                                </nav>
-                                        <button class="btn btn-default form-control" id="btnUpdate" onclick="updateMatchScore()">UPDATE</button>
-                            </tr>
-                            <br />
-                            <br />
-                            <tr class="fixturHead">
-                                <th class="text-center">HOME</th>
-                                <th class="text-center">#</th>
-                                <th class="text-center">-</th>
-                                <th class="text-center">#</th>
-                                <th class="text-center">AWAY</th>
-                            </tr>
-                     </table>    
-                </div>
-            </div>
-            <div class="row hidden" id="engineButtons">
-                <div class="col-lg-4 text-left">
-                    <Button class="btn btn-danger btnBaslaSifirla hidden" onclick="autoFinishLeague()" id="finishLeague">LİGİ BİTİR</Button>
-                </div>
-                <div class="col-lg-4 col-lg-offset-4 text-right">
-                    <Button class="btn btn-danger btnBaslaSifirla" id="btnIlerle" onclick="PlayAndNextWeek()">İLERLE</Button>
-                </div>
+            <!--FİXTÜR TABLOSU-->
+            <div class="col-lg-4">
+                <table class="table table-bordered text-center bg-primary" id="fixturesTable">
+                    <tr class="fixturHead">
+                        <h3 class="text-center">FİXTURES</h3>
+                    </tr>
+                    <hr />
+                    <tr class="fixturHead">
+                        <nav aria-label="...">
+                            <ul class="pager">
+                                <li class="previous"><a onclick="displayPreviousWeekMatches()" href="#"><span
+                                            aria-hidden="true">&larr;</span> Previous</a></li>
+                                <li class="week"><b id="fixtureWeek">-</b></li>
+                                <p hidden id="weekNumber"></p>
+                                <li class="next"><a onclick="displayNextWeekMatches()" href="#">Next <span
+                                            aria-hidden="true">&rarr;</span></a></li>
+                            </ul>
+                        </nav>
+                        <button class="btn btn-default form-control" id="btnUpdate"
+                            onclick="updateMatchScore()">UPDATE</button>
+                    </tr>
+                    <br />
+                    <br />
+                    <tr class="fixturHead">
+                        <th class="text-center">HOME</th>
+                        <th class="text-center">#</th>
+                        <th class="text-center">-</th>
+                        <th class="text-center">#</th>
+                        <th class="text-center">AWAY</th>
+                    </tr>
+                </table>
             </div>
         </div>
+        <div class="row hidden" id="engineButtons">
+            <div class="col-lg-4 text-left">
+                <Button class="btn btn-danger btnBaslaSifirla hidden" onclick="autoFinishLeague()"
+                    id="finishLeague">SIMULATE ALL MATCHES</Button>
+            </div>
+            <div class="col-lg-4 col-lg-offset-4 text-right">
+                <Button class="btn btn-danger btnBaslaSifirla" id="btnIlerle" onclick="PlayAndNextWeek()">NEXT
+                    WEEK</Button>
+            </div>
+        </div>
+    </div>
 
-        <script src="node_modules\jquery\dist\jquery.slim.min.js"></script>
-        <script src="node_modules\bootstrap\dist\js\bootstrap.min.js"></script>
-        <script src="index.js"></script>
-    </body>
+    <script src="node_modules\jquery\dist\jquery.slim.min.js"></script>
+    <script src="node_modules\bootstrap\dist\js\bootstrap.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
 </html>

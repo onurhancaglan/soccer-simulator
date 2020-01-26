@@ -21,7 +21,7 @@ $(document).ready(function () {
         appendChampionshipChance(Teams);
     }
 
-    if (NowWeek === 7) {
+    if (NowWeek == 7) {
         whenLeagueEndUpdateButtons();
     }
 });
@@ -41,7 +41,7 @@ function playMatch(home, away) {
     var homeChance = 0;
 
     //TAKTİKSEL AĞIRLIK
-    if (home.Tactics === 'Def' && away.Tactics === 'Def') {
+    if (home.Tactics == 'Def' && away.Tactics == 'Def') {
         if (home.Defence > away.Defence) {
             homeChance++;
             if (away.Offensive > home.Offensive) {
@@ -59,7 +59,7 @@ function playMatch(home, away) {
             }
         }
     };
-    if (home.Tactics === 'Off' && away.Tactics === 'Off') {
+    if (home.Tactics == 'Off' && away.Tactics == 'Off') {
         if (home.Offensive > away.Offensive) {
             homeChance++;
             if (away.Defence > home.Defence) {
@@ -77,7 +77,7 @@ function playMatch(home, away) {
             }
         }
     };
-    if (home.Tactics === 'Def' && away.Tactics === 'Off') {
+    if (home.Tactics == 'Def' && away.Tactics == 'Off') {
         if (home.Defence > away.Offensive) {
             homeChance++;
             if (away.Defence > home.Defence) {
@@ -95,7 +95,7 @@ function playMatch(home, away) {
             }
         }
     };
-    if (home.Tactics === 'Off' && away.Tactics === 'Def') {
+    if (home.Tactics == 'Off' && away.Tactics == 'Def') {
         if (home.Offensive > away.Defence) {
             homeChance++;
             if (away.Defence > home.Defence) {
@@ -201,7 +201,7 @@ function setMatchStatics(homeTeam, awayTeam, homeGoal, awayGoal) {
         homeTeam.Lose++;
         homeTeam.Morale -= 3;
         awayTeam.Morale += 3;
-    } else if (homeGoal === awayGoal) {
+    } else if (homeGoal == awayGoal) {
         homeTeam.Tie++;
         awayTeam.Tie++;
         homeTeam.Pts++;
@@ -221,10 +221,10 @@ function updateTeams(homeTeam, awayTeam) {
     var updateTeams = JSON.parse(localStorage.getItem('Teams'));
 
     jQuery.each(updateTeams, function (i, team) {
-        if (team.Name === homeTeam.Name) {
+        if (team.Name == homeTeam.Name) {
             delete updateTeams[i];
             updateTeams[i] = homeTeam;
-        } else if (team.Name === awayTeam.Name) {
+        } else if (team.Name == awayTeam.Name) {
             delete updateTeams[i];
             updateTeams[i] = awayTeam;
         }
@@ -258,7 +258,7 @@ function getMatchToFixtureAndPlay() {
     var NowWeek = localStorage.getItem('NowWeek');
     var Teams = JSON.parse(localStorage.getItem('Teams'));
 
-    if (NowWeek === 7) {
+    if (NowWeek == 7) {
         whenLeagueEndUpdateButtons();
         return;
     }
@@ -268,16 +268,16 @@ function getMatchToFixtureAndPlay() {
         'Away': null
     }];
     jQuery.each(Fixture, function (i, match) {
-        if (match.Week === NowWeek) {
+        if (match.Week == NowWeek) {
             jQuery.each(Teams, function (j, team) {
-                if (team.Name === match.Home) {
+                if (team.Name == match.Home) {
                     matchTeams[0].Home = team;
                 }
-                if (team.Name === match.Away) {
+                if (team.Name == match.Away) {
                     matchTeams[0].Away = team;
                 }
             });
-            if (matchTeams[0].Home !== null && matchTeams[0].Away !== null) {
+            if (matchTeams[0].Home != null && matchTeams[0].Away != null) {
                 playMatch(matchTeams[0].Home, matchTeams[0].Away);
                 matchTeams[0].Home = null;
                 matchTeams[0].Away = null;
@@ -312,7 +312,7 @@ function updateFixture(homeTeam, awayTeam, homeGoal, awayGoal) {
     var updateFixtures = JSON.parse(localStorage.getItem('Fixture'));
 
     jQuery.each(updateFixtures, function (i, match) {
-        if (match.Home === homeTeam.Name && match.Away === awayTeam.Name) {
+        if (match.Home == homeTeam.Name && match.Away == awayTeam.Name) {
             NowWeek = updateFixtures[i].Week;
             delete updateFixtures[i];
 
@@ -346,15 +346,15 @@ function championshipChance() {
     var firstVsFourth = first.Pts - fourth.Pts;
 
     var requiredPointsDifferenceForChampionship;
-    if (NowWeek === 4) {
+    if (NowWeek == 4) {
         requiredPointsDifferenceForChampionship = 6;
         compareTeamsChance(firstVsFourth, firstVsSecond, firstVsThird, first, second, third, fourth, requiredPointsDifferenceForChampionship);
     }
-    if (NowWeek === 5) {
+    if (NowWeek == 5) {
         requiredPointsDifferenceForChampionship = 3;
         compareTeamsChance(firstVsFourth, firstVsSecond, firstVsThird, first, second, third, fourth, requiredPointsDifferenceForChampionship);
     }
-    if (NowWeek === 6) {
+    if (NowWeek == 6) {
         requiredPointsDifferenceForChampionship = 0;
         compareTeamsChance(firstVsFourth, firstVsSecond, firstVsThird, first, second, third, fourth, requiredPointsDifferenceForChampionship);
     }
@@ -366,7 +366,7 @@ function championshipChance() {
 
 function autoFinishLeague() {
     var NowWeek = localStorage.getItem('NowWeek');
-    if (NowWeek === 1) {
+    if (NowWeek == 1) {
         return;
     }
     for (NowWeek; NowWeek <= 7; NowWeek++) {
@@ -385,15 +385,15 @@ function appendSelectedWeekMatchesToFixtureTable(week) {
     var thisWeekMatchCount = 1;
 
     jQuery.each(Fixture, function (i, match) {
-        if (match.Week === week) {
-            if (thisWeekMatchCount === 1) {
-                if (match.homeGoal === null || match.awayGoal === null) {
+        if (match.Week == week) {
+            if (thisWeekMatchCount == 1) {
+                if (match.homeGoal == null || match.awayGoal == null) {
                     $('#fixturesTable').append('<tr><td id="homeTeamUp">' + match.Home + '</td><td><input class="form-control" type="number" id="homeGoalUp" value="' + match.HomeGoal + '"></td><td>-</td><td><input class="form-control" id="awayGoalUp" type="number" value="' + match.AwayGoal + '")"></td><td id="awayTeamUp">' + match.Away + '</td></tr>');
                 } else {
                     $('#fixturesTable').append('<tr><td <td id="homeTeamUp">' + match.Home + '</td><td> <input class="form-control" type="number" id="homeGoalUp" value="' + match.HomeGoal + '" ></td><td>-</td><td><input class="form-control" id="awayGoalUp" type="number" value="' + match.AwayGoal + '" ></td><td <td id="awayTeamUp">' + match.Away + '</td></tr>');
                 }
                 thisWeekMatchCount++;
-            } else if (thisWeekMatchCount === 2) {
+            } else if (thisWeekMatchCount == 2) {
                 $('#fixturesTable').append('<tr><td id="homeTeamDown">' + match.Home + '</td><td><input class="form-control" type="number" id="homeGoalDown" value="' + match.HomeGoal + '"></td><td>-</td><td><input class="form-control" id="awayGoalDown" type="number" value="' + match.AwayGoal + '")"></td><td id="awayTeamDown">' + match.Away + '</td></tr>');
 
                 thisWeekMatchCount++;
@@ -437,7 +437,7 @@ function createFixture() {
             var home = (round + match) % (teamsCount - 1);
             var away = (teamsCount - 1 - match + round) % (teamsCount - 1);
 
-            if (match === 0) {
+            if (match == 0) {
                 away = teamsCount - 1;
             }
             if (round > 2) {
@@ -469,7 +469,7 @@ function resetProgram() {
 function displayNextWeekMatches() {
     var displayingWeek = parseInt($('#weekNumber').text());
 
-    if (displayingWeek === 6) {
+    if (displayingWeek == 6) {
         appendSelectedWeekMatchesToFixtureTable(displayingWeek);
         $('li.week').html('<b id="weekValue">' + displayingWeek + '. Week</b>');
         $('#weekNumber').html(displayingWeek);
@@ -486,7 +486,7 @@ function displayNextWeekMatches() {
 function displayPreviousWeekMatches() {
     var displayingWeek = parseInt($('#weekNumber').text());
 
-    if (displayingWeek === 1) {
+    if (displayingWeek == 1) {
         appendSelectedWeekMatchesToFixtureTable(displayingWeek);
         $('li.week').html('<b id="weekValue">' + displayingWeek + '. Week</b>');
         $('#weekNumber').html(displayingWeek);
@@ -613,7 +613,7 @@ function removeStartButtonDisplayResteButton() {
     //SIFIRLA BUTON
     $('.page-header').on('click', '#sifirlaButton', function () {
         var res = confirm('Sıfırlamak istediğine emin misin? Tüm veriler kaybolacak!');
-        if (res === true) {
+        if (res == true) {
             resetProgram();
         }
     });
@@ -622,7 +622,7 @@ function removeStartButtonDisplayResteButton() {
 
 function compareTeamsChance(firstVsFourth, firstVsSecond, firstVsThird, first, second, third, fourth, gerekliPuanFarki) {
 
-    if (firstVsSecond === 0) {
+    if (firstVsSecond == 0) {
         second.PredictionsOfChampionship = "PROBLABLY";
         first.PredictionsOfChampionship = "PROBLABLY";
     } else if (firstVsSecond > gerekliPuanFarki) {
@@ -631,32 +631,32 @@ function compareTeamsChance(firstVsFourth, firstVsSecond, firstVsThird, first, s
     } else if (firstVsSecond < gerekliPuanFarki) {
         second.PredictionsOfChampionship = "PROBLABLY";
         first.PredictionsOfChampionship = "PROBLABLY";
-    } else if (firstVsSecond === gerekliPuanFarki) {
+    } else if (firstVsSecond == gerekliPuanFarki) {
         second.PredictionsOfChampionship = "LOW CHANCE";
         first.PredictionsOfChampionship = "HİGH CHANCE";
     }
 
 
 
-    if (firstVsThird === 0) {
+    if (firstVsThird == 0) {
         third.PredictionsOfChampionship = "PROBLABLY";
     } else if (firstVsThird > gerekliPuanFarki) {
         third.PredictionsOfChampionship = "IMPOSSIBLE";
     } else if (firstVsThird < gerekliPuanFarki) {
         third.PredictionsOfChampionship = "MAYBE";
-    } else if (firstVsThird === gerekliPuanFarki) {
+    } else if (firstVsThird == gerekliPuanFarki) {
         third.PredictionsOfChampionship = "LOW CHANCE";
     }
 
 
 
-    if (firstVsFourth === 0) {
+    if (firstVsFourth == 0) {
         fourth.PredictionsOfChampionship = "PROBLABLY";
     } else if (firstVsFourth > gerekliPuanFarki) {
         fourth.PredictionsOfChampionship = "IMPOSSIBLE";
     } else if (firstVsFourth < gerekliPuanFarki) {
         fourth.PredictionsOfChampionship = "MAYBE";
-    } else if (firstVsFourth === gerekliPuanFarki) {
+    } else if (firstVsFourth == gerekliPuanFarki) {
         fourth.PredictionsOfChampionship = "LOW CHANCE";
     }
 
@@ -704,25 +704,25 @@ function updateMatchScore() {
     var awayGoalDown = $('#awayGoalDown').val();
 
     jQuery.each(Fixture, function (i, match) {
-        if (match.Home === homeTeamUp && match.Away === awayTeamUp && match.Week === week) {
+        if (match.Home == homeTeamUp && match.Away == awayTeamUp && match.Week == week) {
             var oldHomeGoalUp = match.HomeGoal;
             var oldAwayGoalUp = match.AwayGoal;
             match.HomeGoal = homeGoalUp;
             match.AwayGoal = awayGoalUp;
 
-            homeTeam = Teams.find(item => item.Name === homeTeamUp);
-            awayTeam = Teams.find(item => item.Name === awayTeamUp);
+            homeTeam = Teams.find(item => item.Name == homeTeamUp);
+            awayTeam = Teams.find(item => item.Name == awayTeamUp);
             removeOldMatchStatics(homeTeam, awayTeam, oldHomeGoalUp, oldAwayGoalUp);
             setMatchStatics(homeTeam, awayTeam, homeGoalUp, awayGoalUp);
             championshipChance();
-        } else if (match.Home === homeTeamDown && match.Away === awayTeamDown && match.Week === week) {
+        } else if (match.Home == homeTeamDown && match.Away == awayTeamDown && match.Week == week) {
             var oldHomeGoalDown = match.HomeGoal;
             var oldAwayGoalDown = match.AwayGoal;
             match.HomeGoal = homeGoalDown;
             match.AwayGoal = awayGoalDown;
 
-            homeTeam = Teams.find(item => item.Name === homeTeamDown);
-            awayTeam = Teams.find(item => item.Name === awayTeamDown);
+            homeTeam = Teams.find(item => item.Name == homeTeamDown);
+            awayTeam = Teams.find(item => item.Name == awayTeamDown);
             removeOldMatchStatics(homeTeam, awayTeam, oldHomeGoalDown, oldAwayGoalDown);
             setMatchStatics(homeTeam, awayTeam, homeGoalDown, awayGoalDown);
             championshipChance();
