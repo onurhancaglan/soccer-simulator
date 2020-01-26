@@ -240,7 +240,7 @@ function whenLeagueEndUpdateButtons() {
         return b.Pts - a.Pts || b.GoalDifference - a.GoalDifference;
     });
 
-    $('.btnBaslaSifirla').html('LİG SONA ERDİ!');
+    $('.btnBaslaSifirla').html('END OF SEASON!');
     $('#btnIlerle').removeClass('btn-danger');
     $('#btnIlerle').addClass('btn-success');
     $('.btnBaslaSifirla').addClass('disabled');
