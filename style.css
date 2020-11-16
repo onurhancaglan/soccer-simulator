@@ -1,8 +1,5 @@
 body{
-    background-image:url('./src/image/vairo-background.jpg');
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color:#fffacd;
 }
 .headerText {
     color:red;
